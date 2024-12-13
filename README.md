@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## 🚒 Fire Truck Invoice Generator
 
-First, run the development server:
+This is a Next.js application that allows users to generate PDF invoices for Garage listings. Simply copy a link from https://withgarage.com, paste the URL into the input, click "Request PDF invoice" and a PDF invoice will be generated, including key details like title, brand, year, mileage, price, and description.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🛠️ **Technologies Used**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   **Next.js**: For the frontend framework.
+-   **Tailwind CSS**: For styling the UI.
+-   **Shadcn UI**: For consistent and modern component design.
+-   **jsPDF**: For generating PDF invoices.
+-   **Axios**: For making API requests.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+----------
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📂 **Project Structure**
 
-## Learn More
+    `fire-truck-invoice-app/
+    │── public/
+    │   └── garage-logo.png        # The Garage logo used in the PDF
+    │
+    ├── app/
+    │   │   ├── page.tsx           # Home page with the form
+    │   │   └── api/
+    │   │       └── fetchListing/route.ts  # API route to fetch listing details
+    │   │
+    │   ├── components/
+    │       └── RequestInvoiceForm.tsx     # Form component for requesting the PDF
+    │   
+    ├── lib/
+    │   └── generateInvoice.tsx        # Function to generate the PDF
+    │   
+    │   
+    ├── globals.css        # Tailwind CSS global styles
+    │
+    │── package.json               # Project dependencies and scripts
+    │── next.config.js             # Next.js configuration
+    └── README.md                  # Project documentation` 
 
-To learn more about Next.js, take a look at the following resources:
+----------
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🚀 **Getting Started**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Follow these steps to set up and run the project locally:
 
-## Deploy on Vercel
+1.  **Clone the repository:**
+    
+    `git clone https://github.com/PrinceCarter/fire-truck-invoice-app.git`
+    
+    `cd fire-truck-invoice-app`
+    
+3.  **Install dependencies:**
+        
+    `npm install` 
+    
+4.  **Run the development server:**
+    
+    `npm run dev` 
+    
+5.  Open http://localhost:3000 in your browser.
+    
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+----------
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 📝 **How to Use**
+
+1.  **Paste the fire truck listing URL** into the input field.
+    
+2.  Click **"Request PDF Invoice"**.
+    
+3.  The PDF invoice will be generated and downloaded, including:
+
+     -   **Garage** logo
+    -   Title
+    -   Brand
+    -   Year
+    -   Mileage
+    -   Price
+    -   Description
+    -   Location
+   
+----------
+
+### ⚙️ **API Endpoint**
+
+The app fetches listing data using the following API route:
+
+-   **Endpoint**: `POST /api/fetchListing`
+-   **Request Body**: `{ id: "<UUID from the listing URL>" }`
+-   **Response**: Listing details in JSON format
+- 
+----------
+
+### 📄 **PDF Generation**
+
+The PDF is generated using `jsPDF` with the following details:
+
+-   Logo at the top-left corner
+-   Fire truck details formatted with appropriate spacing
+-   Multi-line descriptions wrapped to avoid overlap
+
+----------
+
+### 🧰 **Dependencies**
+
+-   **Next.js**
+-   **Tailwind CSS**
+-   **Shadcn UI**
+-   **Axios**
+-   **jsPDF**
+----------
+
+### 📜 **License**
+
+This project is licensed under the **MIT License**.
+
+----------
